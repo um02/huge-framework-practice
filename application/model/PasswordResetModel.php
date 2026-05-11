@@ -17,10 +17,10 @@ class PasswordResetModel
      */
     public static function requestPasswordReset($user_name_or_email, $captcha)
     {
-        if (!CaptchaModel::checkCaptcha($captcha)) {
-            Session::add('feedback_negative', Text::get('FEEDBACK_CAPTCHA_WRONG'));
-            return false;
-        }
+        // if (!CaptchaModel::checkCaptcha($captcha)) {
+        //     Session::add('feedback_negative', Text::get('FEEDBACK_CAPTCHA_WRONG'));
+        //     return false;
+        // }
 
         if (empty($user_name_or_email)) {
             Session::add('feedback_negative', Text::get('FEEDBACK_USERNAME_EMAIL_FIELD_EMPTY'));

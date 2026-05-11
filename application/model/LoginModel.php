@@ -117,10 +117,10 @@ class LoginModel
         }
 
         // if user is not active (= has not verified account by verification mail)
-        if ($result->user_active != 1) {
-            Session::add('feedback_negative', Text::get('FEEDBACK_ACCOUNT_NOT_ACTIVATED_YET'));
-            return false;
-        }
+        // if ($result->user_active != 1) {
+        //     Session::add('feedback_negative', Text::get('FEEDBACK_ACCOUNT_NOT_ACTIVATED_YET'));
+        //     return false;
+        // }
 
         // reset the user not found counter
         self::resetUserNotFoundCounter();
