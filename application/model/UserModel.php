@@ -299,11 +299,13 @@ class UserModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT user_id, user_name, user_email, user_password_hash, user_active,user_deleted, user_suspension_timestamp, user_account_type,
-                       user_failed_logins, user_last_failed_login
+        $sql = "SELECT users.user_id, users.user_name, users.user_email, users.user_password_hash, users.user_active,user_deleted, users.user_suspension_timestamp, users.user_account_type, account_types.account_type_name,
+                       users.user_failed_logins, users.user_last_failed_login
                   FROM users
-                 WHERE (user_name = :user_name OR user_email = :user_name)
-                       AND user_provider_type = :provider_type
+                  JOIN account_types
+                    ON users.user_account_type = account_types.account_type_id
+                 WHERE (users.user_name = :user_name OR users.user_email = :user_name)
+                       AND users.user_provider_type = :provider_type
                  LIMIT 1";
         $query = $database->prepare($sql);
 

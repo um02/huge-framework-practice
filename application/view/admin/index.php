@@ -13,7 +13,7 @@
             or suspend a user.
         </div>
         <div>
-            <table class="overview-table">
+            <table id="admin-overview-table" class="overview-table">
                 <thead>
                 <tr>
                     <td>Id</td>
@@ -52,6 +52,12 @@
                     </tr>
                 <?php } ?>
             </table>
+
+            <script>
+                $(document).ready(function () {
+                    $('#admin-overview-table').DataTable();
+                });
+            </script>
         </div>
     </div>
 </div>
