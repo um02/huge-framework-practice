@@ -50,6 +50,9 @@
                         <a href="<?php echo Config::get('URL'); ?>register/index">Register User</a>
                     </li>
                 <?php endif; ?>
+            <li>
+                <a href="<?= Config::get('URL'); ?>user/showUsersAndGroups">Users/Groups</a>
+            </li>
             <li <?php if (View::checkForActiveController($filename, "user")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo Config::get('URL'); ?>user/index">My Account</a>
                 <ul class="navigation-submenu">

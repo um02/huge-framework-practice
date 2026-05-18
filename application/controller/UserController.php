@@ -32,6 +32,14 @@ class UserController extends Controller
         ));
     }
 
+    public function showUsersAndGroups()
+    {
+        $this->View->render('user/showUsersAndGroups', array(
+            'users' => UserModel::getPublicProfilesOfAllUsers(),
+            'account_types' => UserModel::getAllAccountTypes()
+        ));
+    }
+
     /**
      * Show edit-my-username page
      */
