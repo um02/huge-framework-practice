@@ -35,7 +35,14 @@
                             <a href="<?= Config::get('URL') . 'profile/showProfile/' . $user->user_id; ?>">Profile</a>
                         </td>
                         <td>
-                            <a href="<?= Config::get('URL') . 'messenger/chatWindow/';?>">Chat</a>
+                            <a href="<?= Config::get('URL') . 'messenger/chatWindow/' . $user->user_id;?>">Chat</a>
+                        </td>
+                        <td>
+                            <?php if (!empty($this->unreadCounts[$user->user_id])): ?>
+                                <span style="color: red; font-weight: bold;">
+                                    <?= $this->unreadCounts[$user->user_id]; ?>
+                                </span>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php } ?>
